@@ -92,13 +92,14 @@ class CourseController(
         }
     }
 
-    @GetMapping("/categories/courses")
+    @GetMapping("/categories/{language}/courses")
     fun getCoursesByCategory(
+        @PathVariable("language") language: String,
         /// Query parameter
         @RequestParam("q") category: List<String>
     ): ResponseEntity<ListMessage<CategoryCourse>> {
         try {
-            val courses = categoryCourseService.getCategoryCourses(category)
+            val courses = categoryCourseService.getCategoryCoursesByLanguage(category, language)
             return ResponseEntity.ok(ListMessage.Success("Courses found", courses))
         } catch (e: IllegalArgumentException) {
             return ResponseEntity.badRequest().body(ListMessage.BadRequest("Category not found"))

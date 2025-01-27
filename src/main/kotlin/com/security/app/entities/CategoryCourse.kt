@@ -1,6 +1,7 @@
 package com.security.app.entities
 
 import com.fasterxml.jackson.annotation.JsonIgnore
+import com.security.app.model.Language
 import jakarta.persistence.*
 import lombok.*
 import org.springframework.data.annotation.CreatedDate
@@ -27,6 +28,10 @@ class CategoryCourse {
     @JoinColumn(name = "categoryId")
     @JsonIgnore
     var category: Category? = null
+
+    @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
+    val language: Language = Language.ENGLISH
 
     @Column(nullable = false)
     val englishName: String = ""

@@ -2,6 +2,7 @@ package com.security.app.services
 
 import com.security.app.entities.Category
 import com.security.app.entities.CategoryCourse
+import com.security.app.model.Language
 import com.security.app.repositories.CategoryCourseRepository
 import com.security.app.repositories.CategoryRepository
 import org.springframework.stereotype.Service
@@ -15,13 +16,15 @@ class CategoryCourseService(
         return categoryRepository.findAll()
     }
 
-    fun getCategoryCourses(
+    fun getCategoryCoursesByLanguage(
         categoryNames: List<String>,
+        languageName: String,
     ): List<CategoryCourse> {
+        val language = Language.fromString(languageName)
         if (categoryNames.isEmpty()) {
-            return categoryCourseRepository.findAll()
+            return categoryCourseRepository.findAllByLanguage(language)
         }
 
-        return categoryCourseRepository.findAllByCategoryCategoryKeyIn(categoryNames)
+        return categoryCourseRepository.findAllByCategoryCategoryKeyInAndLanguage(categoryNames, language)
     }
 }
