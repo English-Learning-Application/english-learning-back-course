@@ -41,7 +41,7 @@ class PhrasalVerb {
     @Column(nullable = false)
     var frenchDescription: String = ""
 
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition = "TEXT")
     var exampleUsage: String = ""
 
     @ManyToMany(mappedBy = "phrasalVerbs", fetch = FetchType.LAZY)

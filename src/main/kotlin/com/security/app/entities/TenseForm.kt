@@ -26,22 +26,22 @@ class TenseForm {
     @Column(nullable = false)
     var tenseFormSubject: String = ""
 
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition = "TEXT")
     var tenseFormPositiveRule: String = ""
 
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition = "TEXT")
     var tenseFormNegativeRule: String = ""
 
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition = "TEXT")
     var tenseFormQuestionRule: String = ""
 
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition = "TEXT")
     var tenseFormPositiveExample: String = ""
 
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition = "TEXT")
     var tenseFormNegativeExample: String = ""
 
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition = "TEXT")
     var tenseFormQuestionExample: String = ""
 
     @ManyToOne

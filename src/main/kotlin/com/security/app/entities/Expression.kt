@@ -31,7 +31,7 @@ class Expression {
     @Column(nullable = false)
     var frenchExpression: String = ""
 
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition = "TEXT")
     var exampleUsage: String = ""
 
     @ManyToMany(mappedBy = "expressions", fetch = FetchType.LAZY)

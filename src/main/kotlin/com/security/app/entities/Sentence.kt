@@ -32,7 +32,7 @@ class Sentence {
     @Column(nullable = false)
     var frenchSentence: String = ""
 
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition = "TEXT")
     var exampleUsage: String = ""
 
     @ManyToMany(mappedBy = "sentences", fetch = FetchType.LAZY)

@@ -1,6 +1,5 @@
 package com.security.app.entities
 
-import com.fasterxml.jackson.annotation.JsonIgnore
 import com.security.app.model.Language
 import jakarta.persistence.*
 import lombok.*
@@ -25,8 +24,7 @@ class CategoryCourse {
     lateinit var categoryCourseId: UUID
 
     @ManyToOne
-    @JoinColumn(name = "categoryId")
-    @JsonIgnore
+    @JoinColumn(name = "categoryId", referencedColumnName = "categoryId")
     var category: Category? = null
 
     @Column(nullable = false)

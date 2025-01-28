@@ -47,13 +47,13 @@ class LanguageCourseLearningContent {
     @Column(nullable = true)
     var frenchTitle: String? = null
 
-    @Column(nullable = true)
+    @Column(nullable = true, columnDefinition = "TEXT")
     var vietnameseDescription: String? = null
 
-    @Column(nullable = true)
+    @Column(nullable = true, columnDefinition = "TEXT")
     var englishDescription: String? = null
 
-    @Column(nullable = true)
+    @Column(nullable = true, columnDefinition = "TEXT")
     var frenchDescription: String? = null
 
     @ManyToMany(fetch = FetchType.LAZY)

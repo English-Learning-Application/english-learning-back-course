@@ -92,7 +92,7 @@ class CourseController(
         }
     }
 
-    @GetMapping("/categories/{language}/courses")
+    @GetMapping("/categories/{language}")
     fun getCoursesByCategory(
         @PathVariable("language") language: String,
         /// Query parameter

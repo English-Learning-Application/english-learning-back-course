@@ -41,10 +41,10 @@ class Tense {
     @Column(nullable = false)
     var frenchDescription: String = ""
 
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition = "TEXT")
     var tenseRule: String = ""
 
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition = "TEXT")
     var tenseExample: String = ""
 
     @ManyToMany(mappedBy = "tenses", fetch = FetchType.LAZY)
