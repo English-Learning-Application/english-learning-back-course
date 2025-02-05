@@ -40,7 +40,7 @@ class Idiom {
     @Column(nullable = false)
     var frenchIdiomMeaning: String = ""
 
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition = "TEXT")
     var exampleUsage: String = ""
 
     @ManyToMany(mappedBy = "idioms", fetch = FetchType.LAZY)

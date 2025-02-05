@@ -29,16 +29,16 @@ class Phonetic {
     @Column(nullable = false)
     var phoneticSound: String = ""
 
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition = "TEXT")
     var englishPhoneticGuide: String = ""
 
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition = "TEXT")
     var vietnamesePhoneticGuide: String = ""
 
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition = "TEXT")
     var frenchPhoneticGuide: String = ""
 
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition = "TEXT")
     var exampleUsage: String = ""
 
     @ManyToMany(mappedBy = "phonetics", fetch = FetchType.LAZY)
