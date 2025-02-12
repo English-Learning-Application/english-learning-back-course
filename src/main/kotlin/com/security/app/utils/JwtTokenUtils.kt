@@ -36,7 +36,7 @@ class JwtTokenUtils {
                 .parseClaimsJws(token)
                 .body
         } catch (ex: Exception) {
-            println("Exception: ${ex.message}")
+            ex.printStackTrace()
         }
         return null
     }

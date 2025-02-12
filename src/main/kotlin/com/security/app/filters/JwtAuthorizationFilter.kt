@@ -30,7 +30,6 @@ class JwtAuthorizationFilter(
                 val token: String = authorizationHeader.substringAfter("Bearer ")
                 val userId = jwtTokenUtils.getUserId(token)
 
-                println(SecurityContextHolder.getContext().authentication)
                 if (SecurityContextHolder.getContext().authentication == null) {
 
                     val userDetails: UserDetails = userDetailsService.loadUserByUsername(token)
