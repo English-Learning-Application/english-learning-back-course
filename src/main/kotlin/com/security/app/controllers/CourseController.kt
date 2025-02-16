@@ -107,4 +107,32 @@ class CourseController(
             return ResponseEntity.badRequest().body(ListMessage.BadRequest("Error occurred"))
         }
     }
+
+    @GetMapping("/categories/courses")
+    fun getCategoryCoursesByIds(
+        @RequestParam("ids") categoryCourseIds: List<String>
+    ): ResponseEntity<ListMessage<CategoryCourse>> {
+        try {
+            val courses = categoryCourseService.getCategoryCoursesByIds(categoryCourseIds)
+            return ResponseEntity.ok(ListMessage.Success("Courses found", courses))
+        } catch (e: IllegalArgumentException) {
+            return ResponseEntity.badRequest().body(ListMessage.BadRequest("Category not found"))
+        } catch (e: Exception) {
+            return ResponseEntity.badRequest().body(ListMessage.BadRequest("Error occurred"))
+        }
+    }
+
+    @GetMapping("")
+    fun getCoursesByIds(
+        @RequestParam("ids") courseIds: List<String>
+    ): ResponseEntity<ListMessage<LanguageCourse>> {
+        try {
+            val courses = languageCourseService.getLanguageCourseByIds(courseIds)
+            return ResponseEntity.ok(ListMessage.Success("Courses found", courses))
+        } catch (e: IllegalArgumentException) {
+            return ResponseEntity.badRequest().body(ListMessage.BadRequest("Course not found"))
+        } catch (e: Exception) {
+            return ResponseEntity.badRequest().body(ListMessage.BadRequest("Error occurred"))
+        }
+    }
 }

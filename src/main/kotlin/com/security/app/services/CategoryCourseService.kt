@@ -5,6 +5,7 @@ import com.security.app.entities.CategoryCourse
 import com.security.app.model.Language
 import com.security.app.repositories.CategoryCourseRepository
 import com.security.app.repositories.CategoryRepository
+import com.security.app.utils.toUUID
 import org.springframework.stereotype.Service
 
 @Service
@@ -26,5 +27,11 @@ class CategoryCourseService(
         }
 
         return categoryCourseRepository.findAllByCategoryCategoryKeyInAndLanguage(categoryNames, language)
+    }
+
+    fun getCategoryCoursesByIds(
+        categoryCourseIds: List<String>,
+    ): List<CategoryCourse> {
+        return categoryCourseRepository.findAllById(categoryCourseIds.map { it.toUUID() })
     }
 }
