@@ -41,3 +41,4 @@ course-service.env
 ### Kotlin ###
 .kotlin
 pipeline.json
+local.env
