@@ -93,7 +93,7 @@ class CourseController(
         }
     }
 
-    @GetMapping("/all/search")
+    @PostMapping("/all/search")
     fun getCoursesByIds(
         @RequestParam("ids") courseIds: List<String>
     ): ResponseEntity<ListMessage<LanguageCourse>> {
