@@ -122,7 +122,7 @@ class CourseController(
         }
     }
 
-    @GetMapping("/")
+    @GetMapping("/all-by-ids")
     fun getCoursesByIds(
         @RequestParam("ids") courseIds: List<String>
     ): ResponseEntity<ListMessage<LanguageCourse>> {
