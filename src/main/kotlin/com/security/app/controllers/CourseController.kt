@@ -122,7 +122,7 @@ class CourseController(
         }
     }
 
-    @GetMapping("")
+    @GetMapping("/all/search")
     fun getCoursesByIds(
         @RequestParam("ids") courseIds: List<String>
     ): ResponseEntity<ListMessage<LanguageCourse>> {
@@ -130,9 +130,11 @@ class CourseController(
             val courses = languageCourseService.getLanguageCourseByIds(courseIds)
             return ResponseEntity.ok(ListMessage.Success("Courses found", courses))
         } catch (e: IllegalArgumentException) {
+            println("Error occurred: ${e.message}")
             return ResponseEntity.badRequest().body(ListMessage.BadRequest("Course not found"))
         } catch (e: Exception) {
-            return ResponseEntity.badRequest().body(ListMessage.BadRequest("Error occurred"))
+            println("Error occurred: ${e.message}")
+            return ResponseEntity.badRequest().body(ListMessage.BadRequest(e.message ?: "Error occurred"))
         }
     }
 }
